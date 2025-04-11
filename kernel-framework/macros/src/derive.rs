@@ -40,7 +40,7 @@ pub fn mapped_kernel(item: ItemStruct) -> syn::Result<TokenStream> {
                         "rdmsr",
                         in("ecx") 0xc0000082u32,
                         out("rdx") rdx,
-                        out("rax") rax, 
+                        out("rax") rax,
                         options(pure, nomem, preserves_flags, nostack)
                     );
                 }
@@ -52,7 +52,7 @@ pub fn mapped_kernel(item: ItemStruct) -> syn::Result<TokenStream> {
             }
         }
 
-        impl okf::MappedKernel for #ident {
+        impl rs::MappedKernel for #ident {
             fn addr(self) -> *const u8 {
                 self.0
             }
