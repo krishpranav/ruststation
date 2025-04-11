@@ -1,17 +1,24 @@
+use proc_macro::TokenStream;
+use syn::{Error, ItemStruct, LitInt, TraitItem, parse_macro_input};
+
 mod derive;
 mod offset;
 
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
+#[proc_macro_derive(MappedKernel)]
+pub fn derive_mapped_kernel(item: TokenStream) -> TokenStream {
+    let item = parse_macro_input!(item as ItemStruct);
+
+    self::derive::mapped_kernel(item)
+        .unwrap_or_else(Error::into_compile_error)
+        .into()
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+#[proc_macro_attribute]
+pub fn offset(args: TokenStream, item: TokenStream) -> TokenStream {
+    let args = parse_macro_input!(args as LitInt);
+    let item = parse_macro_input!(item as TraitItem);
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+    self::offset::transform(args, item)
+        .unwrap_or_else(Error::into_compile_error)
+        .into()
 }
