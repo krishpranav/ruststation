@@ -1,6 +1,13 @@
 [package]
-name = "kernel-framework"
+name = "rsf"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+bitflags = "2.9.0"
+rs-macros = { version = "0.1.0", path = "macros" }
+
+[workspace]
+members = [
+    "macros"
+]
