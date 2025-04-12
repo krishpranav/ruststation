@@ -6,7 +6,7 @@ pub trait Pcpu<K: Kernel>: Sized {
         let mut v;
 
         unsafe {
-            asm!("")
+            asm!("mov {}, gs:[0]", out(reg) v, options(readonly, pure, preserves_flags, nostack))
         };
 
         v
@@ -16,7 +16,7 @@ pub trait Pcpu<K: Kernel>: Sized {
         let mut v;
 
         unsafe {
-            asm!("");
+            asm!("mov {:e}, gs:[0x34]", out(reg) v, options(readonly, pure, preserves_flags, nostack))
         };
 
         v
