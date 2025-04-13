@@ -4,32 +4,40 @@ use core::mem::{size_of, transmute};
 pub const INADDR_ANY: u32 = 0;
 
 #[repr(C)]
-pub struct SockAddIn {
+pub struct SockAddrIn {
     pub sin_len: u8,
     pub sin_family: u8,
     pub sin_port: u16,
+    pub sin_addr: InAddr,
     pub sin_zero: [u8; 8],
 }
 
-impl SockAddIn {
-    pub fn new(addr: u16, port: u16) -> Self {
+impl SockAddrIn {
+    pub fn new(addr: InAddr, port: u16) -> Self {
         Self {
             sin_len: size_of::<Self>() as _,
             sin_family: AF_INET as _,
             sin_port: port.to_be(),
+            sin_addr: addr,
             sin_zero: [0; 8],
         }
     }
 }
 
-impl AsRef<SockAddr> for SockAddIn {
+impl AsRef<SockAddr> for SockAddrIn {
     fn as_ref(&self) -> &SockAddr {
         unsafe { transmute(self) }
     }
 }
 
+impl AsMut<SockAddr> for SockAddrIn {
+    fn as_mut(&mut self) -> &mut SockAddr {
+        unsafe { transmute(self) }
+    }
+}
+
 #[repr(C)]
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy)]
 pub struct InAddr {
     pub s_addr: u32,
 }
