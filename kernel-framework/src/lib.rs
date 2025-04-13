@@ -37,7 +37,6 @@ pub mod thread;
 pub mod ucred;
 pub mod uio;
 pub mod vnode;
-mod namei;
 
 pub trait Kernel: MappedKernel {
     const ACCEPT_MTX: StaticMut<Self::Mtx>;
