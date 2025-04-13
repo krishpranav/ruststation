@@ -1,3 +1,5 @@
+mod inet;
+
 use crate::Kernel;
 use crate::thread::Thread;
 use core::ffi::{c_int, c_short, c_ushort};
