@@ -29,3 +29,14 @@ impl Write for Message {
         Ok(())
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn write_str() {
+        let mut m = Message::default();
+        write!(m, "Hello world").unwrap()
+    }
+}
