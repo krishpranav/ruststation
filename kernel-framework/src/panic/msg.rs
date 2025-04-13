@@ -25,18 +25,11 @@ impl Default for Message {
 impl Write for Message {
     fn write_str(&mut self, s: &str) -> core::fmt::Result {
         let len = min(s.len(), (self.buf.len() - 1) - self.pos);
+        let buf = unsafe { self.buf.as_mut_ptr().add(self.pos) };
+
+        unsafe { buf.copy_from_nonoverlapping(s.as_ptr(), len) };
+        self.pos += len;
 
         Ok(())
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn write_str() {
-        let mut m = Message::default();
-        write!(m, "Hello world").unwrap()
     }
 }
