@@ -1,0 +1,7 @@
+[package]
+name = "ps4-1100"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rsf = { version = "0.1.0", path = "../" }
