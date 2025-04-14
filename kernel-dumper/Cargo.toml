@@ -15,8 +15,4 @@ korbis-1100 = { path = "korbis-1100" }
 opt-level = "z"
 
 [workspace]
-members = [
-    "korbis", "korbis-1100",
-    "korbis-1100",
-    "korbis-macros"
-]
+members = ["korbis", "korbis-1100", "korbis-macros"]
