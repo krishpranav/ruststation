@@ -2,6 +2,7 @@
 mod elf;
 mod file;
 mod thread;
+mod uio;
 
 #[no_std]
 
