@@ -1,14 +1,28 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
+#![no_std]
+
+use core::fmt::{Display, Formatter};
+use num_enum::{IntoPrimitive, TryFromPrimitive};
+
+#[cfg(feature = "read")]
+extern crate std;
+
+pub const MAGIC: &[u8; 4] = b"\x7FOBF";
+
+/// Type of top-level item in the dump file.
+#[repr(u8)]
+#[derive(Debug, Clone, Copy, IntoPrimitive, TryFromPrimitive)]
+pub enum DumpItem {
+    End = 0,
+    Ps4Part = 1,
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+impl Display for DumpItem {
+    fn fmt(&self, f: &mut Formatter<'_>) -> core::fmt::Result {
+        let v = match self {
+            Self::End => "",
+            Self::Ps4Part => "PlayStation 4 partition",
+        };
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
+        f.write_str(v)
     }
 }
