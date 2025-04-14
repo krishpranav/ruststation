@@ -8,6 +8,6 @@ pub struct File {
 
 impl rsf::file::File for File {
     fn refcnt(&self) -> &AtomicU32 {
-        todo!()
+        &self.refcnt
     }
 }
