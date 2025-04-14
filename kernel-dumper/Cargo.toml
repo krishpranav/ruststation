@@ -8,8 +8,8 @@ bitflags = "2.5.0"
 korbis = { path = "korbis" }
 x86_64 = { version = "0.15.1", features = ["instructions"], default-features = false }
 
-#[target.'cfg(fw = "1100")'.dependencies]
-#korbis-1100 = { path = "korbis-1100" }
+[target.'cfg(fw = "1100")'.dependencies]
+korbis-1100 = { path = "korbis-1100" }
 
 [profile.release]
 opt-level = "z"
@@ -17,6 +17,6 @@ opt-level = "z"
 [workspace]
 members = [
     "korbis", "korbis-1100",
-#    "korbis-1100",
+    "korbis-1100",
     "korbis-macros"
 ]

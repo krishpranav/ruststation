@@ -20,6 +20,7 @@ version = "0.1.0"
 dependencies = [
  "bitflags",
  "korbis",
+ "korbis-1100",
  "x86_64",
 ]
 
@@ -29,6 +30,10 @@ version = "0.1.0"
 dependencies = [
  "korbis-macros",
 ]
+
+[[package]]
+name = "korbis-1100"
+version = "0.1.0"
 
 [[package]]
 name = "korbis-macros"
