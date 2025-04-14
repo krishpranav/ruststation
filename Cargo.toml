@@ -5,3 +5,4 @@ edition = "2021"
 
 [dependencies]
 rsf = { version = "0.1.0", path = "kernel-framework" }
+kernel-dumper = { version = "0.1.0", path = "kernel-dumper" }
