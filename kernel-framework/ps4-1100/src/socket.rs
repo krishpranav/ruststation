@@ -14,10 +14,10 @@ impl rsf::socket::Socket for Socket {
     }
 
     fn set_error(&self, v: c_ushort) {
-        todo!()
+        self.error.store(v, Ordering::Relaxed);
     }
 
     fn timeout(&self) -> *mut c_short {
-        todo!()
+        &self.timeout as *const c_short as _
     }
 }
