@@ -1,6 +1,7 @@
 !
 mod elf;
 mod file;
+mod thread;
 
 #[no_std]
 
