@@ -10,6 +10,7 @@ mod mount;
 mod namei;
 mod pcpu;
 mod uio;
+mod vnode;
 
 #[derive(Clone, Copy, MappedKernel)]
 pub struct Kernel(*const u8);
