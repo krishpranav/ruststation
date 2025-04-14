@@ -4,6 +4,7 @@ pub mod ucred;
 pub mod thread;
 pub mod socket;
 mod file;
+mod lock;
 
 #[derive(Clone, Copy, MappedKernel)]
 pub struct Kernel(*const u8);
