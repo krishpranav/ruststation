@@ -16,7 +16,9 @@ pub trait Pcpu<K: Kernel>: Sized {
         let mut v;
 
         unsafe {
-            asm!("mov {:e}, gs:[0x34]", out(reg) v, options(readonly, pure, preserves_flags, nostack))
+            // asm!("mov {:e}, gs:[0x34]", out(reg) v, options(readonly, pure, preserves_flags, nostack))
+            // asm!("mov {0}, gs:[0x34]", out(reg) v, options(readonly, pure, preserves_flags, nostack))
+            asm!("mov {}, gs:[0x34]", out(reg) v, options(readonly, pure, preserves_flags, nostack))
         };
 
         v
