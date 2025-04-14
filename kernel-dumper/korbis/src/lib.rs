@@ -1,4 +1,7 @@
-!#[no_std]
+!
+mod elf;
+
+#[no_std]
 
 pub trait Kernel: Copy + Send + Sync + 'static {
 }
