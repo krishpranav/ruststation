@@ -3,6 +3,7 @@ use rsf::{Function, MappedKernel, StaticMut, offset};
 pub mod ucred;
 pub mod thread;
 pub mod socket;
+mod file;
 
 #[derive(Clone, Copy, MappedKernel)]
 pub struct Kernel(*const u8);
