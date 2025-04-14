@@ -8,6 +8,7 @@ mod lock;
 mod malloc;
 mod mount;
 mod namei;
+mod pcpu;
 
 #[derive(Clone, Copy, MappedKernel)]
 pub struct Kernel(*const u8);
