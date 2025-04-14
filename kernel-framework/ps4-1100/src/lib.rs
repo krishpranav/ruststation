@@ -1,16 +1,13 @@
+use rsf::{Function, MappedKernel, StaticMut, offset};
+
 pub mod ucred;
+pub mod thread;
 
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
+#[derive(Clone, Copy, MappedKernel)]
+pub struct Kernel(*const u8);
+
+impl rsf::Kernel for Kernel {
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}
+unsafe impl Send for Kernel {}
+unsafe impl Sync for Kernel {}
