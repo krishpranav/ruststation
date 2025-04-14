@@ -3,6 +3,7 @@ name = "ruststation"
 version = "0.1.0"
 edition = "2021"
 
-[dependencies]
+[workspace]
 rsf = { version = "0.1.0", path = "kernel-framework" }
 kernel-dumper = { version = "0.1.0", path = "kernel-dumper" }
+firmware-dumper = { version = "0.1.0", path = "firmware-dumper" }
