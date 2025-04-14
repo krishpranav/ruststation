@@ -10,6 +10,6 @@ pub trait Thread: Sized {
 
         p
     }
-    
+
     fn ret(&self, i: usize) -> usize;
 }
