@@ -26,6 +26,9 @@ dependencies = [
 [[package]]
 name = "korbis"
 version = "0.1.0"
+dependencies = [
+ "korbis-macros",
+]
 
 [[package]]
 name = "korbis-macros"
