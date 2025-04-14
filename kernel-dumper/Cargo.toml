@@ -16,7 +16,7 @@ opt-level = "z"
 
 [workspace]
 members = [
-    "korbis",
+    "korbis", "korbis-1100",
 #    "korbis-1100",
     "korbis-macros"
 ]
