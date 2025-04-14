@@ -26,6 +26,18 @@ dependencies = [
 [[package]]
 name = "korbis"
 version = "0.1.0"
+dependencies = [
+ "korbis-macros",
+]
+
+[[package]]
+name = "korbis-macros"
+version = "0.1.0"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
 
 [[package]]
 name = "proc-macro2"
