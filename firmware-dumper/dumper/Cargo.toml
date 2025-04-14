@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 rsfw = { path = "../rsfw" }
-rsf = { git = "https://github.com/krishpranav/ruststation.git" }
+rsf = { version = "0.1.0", path = "../../kernel-framework" }
 
 [target.'cfg(fw = "1100")'.dependencies]
-rsf-1100 = { git = "https://github.com/krishpranav/ruststation.git" }
+ps4-1100 = { version = "0.1.0", path = "../../kernel-framework/ps4-1100" }

@@ -3,8 +3,19 @@
 version = 4
 
 [[package]]
+name = "bitflags"
+version = "2.9.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5c8214115b7bf84099f1309324e63141d4c5d7cc26862f97a0a857dbefe165bd"
+
+[[package]]
 name = "dumper"
 version = "0.1.0"
+dependencies = [
+ "ps4-1100",
+ "rsf",
+ "rsfw",
+]
 
 [[package]]
 name = "num_enum"
@@ -36,12 +47,36 @@ dependencies = [
 ]
 
 [[package]]
+name = "ps4-1100"
+version = "0.1.0"
+dependencies = [
+ "rsf",
+]
+
+[[package]]
 name = "quote"
 version = "1.0.40"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1885c039570dc00dcb4ff087a89e185fd56bae234ddc7f056a945bf36467248d"
 dependencies = [
  "proc-macro2",
+]
+
+[[package]]
+name = "rs-macros"
+version = "0.1.0"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
+name = "rsf"
+version = "0.1.0"
+dependencies = [
+ "bitflags",
+ "rs-macros",
 ]
 
 [[package]]
