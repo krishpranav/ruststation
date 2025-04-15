@@ -2,6 +2,7 @@ pub mod vpath;
 mod enum_conversions;
 mod errno;
 mod bitflag;
+mod elf;
 
 pub fn add(left: u64, right: u64) -> u64 {
     left + right
