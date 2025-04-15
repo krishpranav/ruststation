@@ -7,14 +7,32 @@ pub fn transform(arg: LitStr) -> syn::Result<TokenStream> {
     let arg = arg.value();
 
     if arg.is_empty() {
-        return Err(Error::new(span, "expected at least one element"));
+        return Err(Error::new(span, "cannot be an empty string"));
     } else if !arg.starts_with('/') {
-        return Err(Error::new(span, "expected path argument"));
+        return Err(Error::new(span, "cannot begin with `/`"));
     } else if arg.ends_with('/') {
-        return Err(Error::new(span, "expected path argument"));
+        return Err(Error::new(span, "cannot end with `/`"));
     }
 
     let mut sep = 0;
 
-    Ok(quote_spanned!(span => usafe { crate::fs::VPath::new_unchecked(#arg) }))
+    for (i, ch) in arg.bytes().enumerate() {
+        if i == 0 || ch != b'/' {
+            continue;
+        }
+
+        let com = &arg[(sep + 1)..i];
+
+        if com.is_empty() {
+            return Err(Error::new(span, "cannot contains consecutive of `/`"));
+        } else if com == "." {
+            return Err(Error::new(span, "cannot contains `/./`"));
+        } else if com == ".." {
+            return Err(Error::new(span, "cannot contains `/../`"));
+        }
+
+        sep = i;
+    }
+
+    Ok(quote_spanned!(span=> unsafe { crate::fs::VPath::new_unchecked(#arg) }))
 }
