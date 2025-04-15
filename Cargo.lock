@@ -5,3 +5,7 @@ version = 4
 [[package]]
 name = "ruststation"
 version = "0.1.0"
+
+[[patch.unused]]
+name = "winit"
+version = "0.30.8"

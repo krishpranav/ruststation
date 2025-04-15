@@ -4,5 +4,16 @@ version = "0.1.0"
 edition = "2021"
 
 [workspace]
+resolver = "2"
 rsf = { version = "0.1.0", path = "kernel-framework" }
 kernel-dumper = { version = "0.1.0", path = "kernel-dumper" }
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+lto = true
+
+[patch.crates-io]
+winit = { version = "0.30.8", path  = "winit" }
