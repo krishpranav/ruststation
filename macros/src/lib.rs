@@ -1,5 +1,6 @@
 pub mod vpath;
 mod enum_conversions;
+mod errno;
 
 pub fn add(left: u64, right: u64) -> u64 {
     left + right
