@@ -5,8 +5,9 @@ edition = "2021"
 
 [workspace]
 resolver = "2"
-rsf = { version = "0.1.0", path = "kernel-framework" }
-kernel-dumper = { version = "0.1.0", path = "kernel-dumper" }
+members = [
+    "macros",
+]
 
 [profile.dev]
 panic = "abort"
