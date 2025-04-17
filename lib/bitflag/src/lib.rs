@@ -1,8 +1,8 @@
 #![no_std]
 
-mod mask;
-
+pub use self::mask::*;
 use core::ops::{BitOr, Not};
+mod mask;
 
 pub trait Type: From<Self::Raw> {
     type Raw: Raw;
