@@ -5,7 +5,7 @@ edition = "2021"
 
 [workspace]
 resolver = "2"
-members = [
+members = [ "config",
     "lib/bitflag",
     "macros",
 ]
