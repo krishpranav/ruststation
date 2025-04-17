@@ -1,5 +1,7 @@
 #![no_std]
 
+mod mask;
+
 use core::ops::{BitOr, Not};
 
 pub trait Type: From<Self::Raw> {
