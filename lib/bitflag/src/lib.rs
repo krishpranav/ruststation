@@ -1,14 +1,11 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
+#![no_std]
+
+use core::ops::{BitOr, Not};
+
+pub trait Type: From<Self::Raw> {
+    type Raw: Raw;
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+pub trait Raw: BitOr<Output = Self> + Not<Output = Self> + Copy {}
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}
+impl Raw for u32 {}
