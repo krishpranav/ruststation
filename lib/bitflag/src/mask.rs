@@ -35,3 +35,11 @@ impl<T: Type> BitOr for Mask<T, bool> {
         T::from(self.mask | rhs.mask)
     }
 }
+
+impl<T: Type, V> Not for Mask<T, V> {
+    type Output = T;
+
+    fn not(self) -> Self::Output {
+        T::from(!self.mask)
+    }
+}
