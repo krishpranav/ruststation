@@ -1,3 +1,6 @@
+mod vn;
+mod vm;
+
 #[repr(C)]
 pub struct PhysMap {
     pub base: u64,
